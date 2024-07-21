@@ -1,0 +1,13 @@
+<div class="car">
+  <h1>Машины</h1>
+  <div class="tablet">
+    <div *ngFor="let car of cars">
+      <div class="region">{{car.region}}</div>
+      <div class="id">{{car.id}}</div>
+      <div class="brand">{{car.brand}}</div>
+      <div class="price">{{car.price}}</div>
+      <div class="age">{{car.age}}</div>
+      <button (click)="onCarClick(car)">Поиск</button>
+    </div>
+  </div>
+</div>
