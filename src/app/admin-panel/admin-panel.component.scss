@@ -1,0 +1,19 @@
+.admin-panel {
+
+  .admin-panel-content {
+    padding: 50px;
+
+    .add-button-container {
+      margin-bottom: 20px;
+    }
+  }
+
+  ::ng-deep .mat-mdc-tab-body-content {
+    background-color: gray;
+  }
+
+  ::ng-deep .mdc-tab__text-label {
+    color: black !important;
+  }
+}
+
