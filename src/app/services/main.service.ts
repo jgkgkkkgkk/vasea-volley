@@ -45,20 +45,22 @@ export class MainService {
   }
 
   getTeams(): Observable<Team[]> {
-    const dummyTeams2: Team[] = [ {
-      id: 1,
-      name: 'Junior roster',
-      ages: '2010-2012'
-    }, {
-      id: 2,
-      name: 'Adult composition',
-      ages: '2008-2010'
-    },{
-      id: 3,
-      name: 'Mega vareniki',
-      ages: '2006-2008'
-    }];
-    return of(dummyTeams2);
+    // const dummyTeams2: Team[] = [ {
+    //   id: 1,
+    //   name: 'Junior roster',
+    //   ages: '2010-2012'
+    // }, {
+    //   id: 2,
+    //   name: 'Adult composition',
+    //   ages: '2008-2010'
+    // },{
+    //   id: 3,
+    //   name: 'Mega vareniki',
+    //   ages: '2006-2008'
+    // }];
+    // return of(dummyTeams2);
+
+    return this.http.get<Team[]>('http://localhost:8083/api/teams/list')
   }
 
   getHollydays(): Observable<Hollyday[]> {

@@ -38,6 +38,7 @@ export class LessonsComponent implements OnInit {
     });
     this.mainService.getUsers().subscribe(data => {
       this.users = data;
+      console.log(this.users);
     });
     this.mainService.getHollydays().subscribe(data => {
       this.hollydays = data;
