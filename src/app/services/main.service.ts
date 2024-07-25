@@ -5,8 +5,7 @@ import {Team} from "../models/team.model";
 import {TeamMember} from "../models/team-member.model";
 import * as http from "http";
 import {User} from "../models/user.model";
-import { Team2 } from '../models/team2.model';
-import { Team3 } from '../models/teams3';
+import { Hollyday } from '../models/hollyday.model';
 
 
 @Injectable({
@@ -48,32 +47,39 @@ export class MainService {
 
   getTeams(): Observable<Team[]> {
     const dummyTeams2: Team[] = [ {
-      id: 2,
+      id: 1,
       name: 'Junior roster',
       ages: '2010-2012'
-    },];
-    return of(dummyTeams2);
-  }
-
-
-  getTeams2(): Observable<Team2[]> {
-    const dummyTeams2: Team2[] = [{
-      id: 1,
+    }, {
+      id: 2,
       name: 'Adult composition',
       ages: '2008-2010'
-    }]
+    },{
+      id: 3,
+      name: 'Mega vareniki',
+      ages: '2006-2008'
+    }];
     return of(dummyTeams2);
   }
 
-
-
-  getTeams3(): Observable<Team3[]> {
-    const dummyTeams2: Team3[] = [{
-      id: 3,
-      name: 'Соревнования ',
-      ages: ''
-    }]
-    return of(dummyTeams2);
+  getHollydays(): Observable<Hollyday[]> {
+    const hollydays: Hollyday[] = [ {
+      id: 1,
+      name: 'Hollyday 1',
+      description: 'test description 1',
+      startDate: new Date()
+    }, {
+      id: 1,
+      name: 'Hollyday2',
+      description: 'test description 2',
+      startDate: new Date()
+    },{
+      id: 1,
+      name: 'Hollyday3',
+      description: 'test description 3',
+      startDate: new Date()
+    }];
+    return of(hollydays);
   }
 
   getMembersByTeamId(id: number): Observable<any> {

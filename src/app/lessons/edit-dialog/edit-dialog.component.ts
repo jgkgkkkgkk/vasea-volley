@@ -44,6 +44,7 @@ export class EditDialogComponent {
 
 
   onSaveClick() {
+    console.log(this.data);
     this.dialogRef.close(this.data);
   }
 }
