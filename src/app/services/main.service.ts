@@ -4,7 +4,8 @@ import {Observable, of} from "rxjs";
 import {Team} from "../models/team.model";
 import {TeamMember} from "../models/team-member.model";
 import {User} from "../models/user.model";
-import { Hollyday } from '../models/hollyday.model';
+import {Hollyday} from '../models/hollyday.model';
+import {Schedule} from "../models/schedule.model";
 
 
 @Injectable({
@@ -22,26 +23,23 @@ export class MainService {
   }
 
 
-  getSchedule()
-    :
-    Observable<any> {
-    const dummyShedule = [{
-      day: 'Monday',
-      time: '16:00',
-      teacher: 'Vasilii Focsha'
-    }, {
-      day: 'Wednesday',
-      time: '16:00',
-      teacher: 'Vasilii Focsha'
-    }, {
-      day: 'Friday',
-      time: '16:00',
-      teacher: 'Vasilii Focsha'
-    }];
-    return of(dummyShedule);
-    // return this.http.get('https://api.publicapis.org/entries');
+  getSchedule(): Observable<Schedule[]> {
+    // const dummyShedule = [{
+    //   day: 'Monday',
+    //   time: '16:00',
+    //   teacher: 'Vasilii Focsha'
+    // }, {
+    //   day: 'Wednesday',
+    //   time: '16:00',
+    //   teacher: 'Vasilii Focsha'
+    // }, {
+    //   day: 'Friday',
+    //   time: '16:00',
+    //   teacher: 'Vasilii Focsha'
+    // }];
+    // return of(dummyShedule);
 
-
+    return this.http.get<Schedule[]>('http://localhost:8083/api/schedule/list');
   }
 
   getTeams(): Observable<Team[]> {
@@ -60,11 +58,11 @@ export class MainService {
     // }];
     // return of(dummyTeams2);
 
-    return this.http.get<Team[]>('http://localhost:8083/api/teams/list')
+    return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }
 
   getHollydays(): Observable<Hollyday[]> {
-    const hollydays: Hollyday[] = [ {
+    const hollydays: Hollyday[] = [{
       id: 1,
       name: 'Hollyday 1',
       description: 'test description 1',
@@ -74,7 +72,7 @@ export class MainService {
       name: 'Hollyday2',
       description: 'test description 2',
       startDate: new Date()
-    },{
+    }, {
       id: 1,
       name: 'Hollyday3',
       description: 'test description 3',
@@ -85,7 +83,7 @@ export class MainService {
 
   getMembersByTeamId(id: number): Observable<any> {
 
-    const dummyMembers:TeamMember[] = [{
+    const dummyMembers: TeamMember[] = [{
       id: 1,
       teamId: 1,
       firstName: 'Alina',
@@ -152,8 +150,6 @@ export class MainService {
     ]
     return of(dummyMembers.filter(el => el.teamId == id))
   }
-
-
 
 
 }

@@ -6,6 +6,7 @@ import { Team } from "../models/team.model";
 import { User } from "../models/user.model";
 import { Hollyday } from '../models/hollyday.model';
 import { HollyDayDialogComponent } from './hollyday-dialog/hollyday-dialog.component';
+import {Schedule} from "../models/schedule.model";
 
 
 @Component({
@@ -14,7 +15,7 @@ import { HollyDayDialogComponent } from './hollyday-dialog/hollyday-dialog.compo
   styleUrl: './lessons.component.scss'
 })
 export class LessonsComponent implements OnInit {
-  public shedules: any;
+  public shedules: Schedule[] = [];
   public teams: Team[] = [];
   public users: User[] = [];
   public hollydays: Hollyday[] = [];
