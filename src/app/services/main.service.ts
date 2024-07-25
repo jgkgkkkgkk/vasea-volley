@@ -24,40 +24,10 @@ export class MainService {
 
 
   getSchedule(): Observable<Schedule[]> {
-    // const dummyShedule = [{
-    //   day: 'Monday',
-    //   time: '16:00',
-    //   teacher: 'Vasilii Focsha'
-    // }, {
-    //   day: 'Wednesday',
-    //   time: '16:00',
-    //   teacher: 'Vasilii Focsha'
-    // }, {
-    //   day: 'Friday',
-    //   time: '16:00',
-    //   teacher: 'Vasilii Focsha'
-    // }];
-    // return of(dummyShedule);
-
     return this.http.get<Schedule[]>('http://localhost:8083/api/schedule/list');
   }
 
   getTeams(): Observable<Team[]> {
-    // const dummyTeams2: Team[] = [ {
-    //   id: 1,
-    //   name: 'Junior roster',
-    //   ages: '2010-2012'
-    // }, {
-    //   id: 2,
-    //   name: 'Adult composition',
-    //   ages: '2008-2010'
-    // },{
-    //   id: 3,
-    //   name: 'Mega vareniki',
-    //   ages: '2006-2008'
-    // }];
-    // return of(dummyTeams2);
-
     return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }
 

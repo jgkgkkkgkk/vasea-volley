@@ -5,6 +5,8 @@ import {Schedule} from "../models/schedule.model";
 import {Team} from "../models/team.model";
 import {User} from "../models/user.model";
 import {Hollyday} from "../models/hollyday.model";
+import {HollyDayDialogComponent} from "../lessons/hollyday-dialog/hollyday-dialog.component";
+import {ScheduleFormComponent} from "./schedule-form/schedule-form.component";
 
 @Component({
   selector: 'app-admin-panel',
@@ -41,6 +43,11 @@ export class AdminPanelComponent implements OnInit {
 
   addSchedule(): void {
     console.log('addSchedule');
+    this.dialog.open(ScheduleFormComponent, {
+      data: {
+
+      }
+    });
   }
 
   deleteSchedule(row: any): void {
