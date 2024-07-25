@@ -1,323 +1,86 @@
 <div class="lessons-component">
-  <!-- <h1>Пользователи</h1>
-  <div class="tablet">
-    <div *ngFor="let user of users">
-      <div class="day">{{user.firstName}}</div>
-      <div class="time">{{user.lastName}}</div>
-    </div>
-  </div> -->
-
   <h1>Расписание</h1>
-  <!-- <div class="tablet">
-    <div *ngFor="let lesson of shedules">
-      <div class="day">{{lesson.day}}</div>
-      <div class="time">{{lesson.time}}</div>
-      <div class="teacher">{{lesson.teacher}}</div>
-    </div>
-  </div> -->
-
   <div class="shedules">
-    <!-- Cards with media area -->
-    <mat-card class="example-card" appearance="outlined">
+    <mat-card *ngFor="let schedule of shedules" class="example-card"
+              appearance="outlined">
       <mat-card-header>
         <mat-card-title-group>
-          <div class="table">
-            Monday
-            <br>
-            16:00
-            <br>
-            Vasile Focsha
-          </div>
+          <section>
+            <div class="example-button-row">
+              <div class="tablet">
+                <div class="name">{{schedule.id}}</div>
+                <div class="name">{{schedule.day}}</div>
+                <div class="name">{{schedule.time}}</div>
+                <div class="name">{{schedule.teacher}}</div>
+              </div>
+            </div>
+          </section>
+          <mat-divider></mat-divider>
+          <mat-card-subtitle></mat-card-subtitle>
           <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+               src="https://material.angular.io/assets/img/examples/shiba2.jpg">
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-
-        content
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <div class="table">
-            Tuesday
-            <br>
-            16:00
-            <br>
-            Svetlana Focsha
-          </div>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-
-        content
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-
-          <div class="table">
-            Wednesday
-            <br>
-            16:00
-            <br>
-            Vasile Focsha
-          </div>
-
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-
-        content
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <div class="table">
-            Thursday
-            <br>
-            16:00
-            <br>
-            Svetlana Focsha
-          </div>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-
-        content
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <div class="table">
-            Thursday
-            <br>
-            16:00
-            <br>
-            Vasile Focsha
-          </div>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-
-        content
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <div class="table">
-            Friday
-            <br>
-            16:00
-            <br>
-            Svetlana Focsha
-          </div>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-
-        content
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <div class="table">
-            Suturday
-            <br>
-            16:00
-            <br>
-            Vasile Focsha
-          </div>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-
         content
       </mat-card-content>
     </mat-card>
   </div>
 
   <h1>Команды</h1>
-
   <div class="shedules">
-    <mat-card class="example-card" appearance="outlined">
+    <mat-card *ngFor="let team of teams" class="example-card"
+      appearance="outlined">
       <mat-card-header>
         <mat-card-title-group>
-
           <section>
-
             <div class="example-button-row">
-
               <div class="tablet">
-                <div *ngFor="let team of teams">
-                  <div class="name">{{team.id}}</div>
-                  <div class="name">{{team.name}}</div>
-                  <div class="name">{{team.ages}}</div>
-
-                  <button (click)="onTeamClick(team)">Состав</button>
-                </div>
+                <div class="name">{{team.id}}</div>
+                <div class="name">{{team.name}}</div>
+                <div class="name">{{team.ages}}</div>
+                <button (click)="onTeamClick(team)">Состав</button>
               </div>
-
             </div>
           </section>
           <mat-divider></mat-divider>
-
           <mat-card-subtitle></mat-card-subtitle>
           <img mat-card-sm-image
             src="https://material.angular.io/assets/img/examples/shiba2.jpg">
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-
-        content
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-
-          <mat-card-subtitle></mat-card-subtitle>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-          <div class="tablet">
-            <div *ngFor="let team2 of teams2">
-              <div class="name">{{team2.id}}</div>
-              <div class="name">{{team2.name}}</div>
-              <div class="name">{{team2.ages}}</div>
-
-              <button (click)="onTeamClick(team2)">Состав</button>
-            </div>
-          </div>
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-
         content
       </mat-card-content>
     </mat-card>
   </div>
 
   <h1>Мероприятия</h1>
-  <div class="shadules">
-
-    <mat-card class="example-card" appearance="outlined">
+  <div class="shedules">
+    <mat-card *ngFor="let hollyday of hollydays" class="example-card"
+      appearance="outlined">
       <mat-card-header>
         <mat-card-title-group>
-
+          <section>
+            <div class="example-button-row">
+              <div class="tablet">
+                <div class="name">{{hollyday.id}}</div>
+                <div class="name">{{hollyday.name}}</div>
+                <div class="name">{{hollyday.description}}</div>
+                <div class="name">{{hollyday.startDate}}</div>
+                <button (click)="onHollydayClick(hollyday)">Детали</button>
+              </div>
+            </div>
+          </section>
+          <mat-divider></mat-divider>
           <mat-card-subtitle></mat-card-subtitle>
           <img mat-card-sm-image
             src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-          <div class="tablet">
-            <div *ngFor="let team2 of teams2">
-              <div class="name">{{team2.id}}</div>
-              <div class="name">{{team2.name}}</div>
-              <div class="name">{{team2.ages}}</div>
-
-              <button (click)="onTeamClick(team2)">Состав</button>
-            </div>
-          </div>
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-
         content
       </mat-card-content>
     </mat-card>
-
-
-    
-    <!-- <h1>Cписки соревнований</h1>
-
-  
-  <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title-group>
-        
-      
-<section>
- 
-  <div class="example-button-row">
- 
-    <div class="tablet2">
-      <div *ngFor="let team3 of teams">
-        <div class="name">{{team3.id}}</div>
-        <div class="name">{{team3.name}}</div>
-        <div class="name">{{team3.ages}}</div>
-  
-        <button (click)="onTeamClick(team3)">Информация</button>
-      </div>
-    </div>
-    
-
   </div>
-</section>
-<mat-divider></mat-divider>
-
-    
-        <mat-card-subtitle></mat-card-subtitle>
-        <img mat-card-sm-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-    
-      content
-    </mat-card-content>
-  </mat-card>
-  
 </div>
-
-
-
-<div> -->
-
-    <!-- <h1>Плановые события </h1>
-        
-<section>
- 
-  <div class="example-button-row">
- 
-    <div class="tablet">
-      <div *ngFor="let team3 of teams3">
-        <div class="name">{{team3.id}}</div>
-        <div class="name">{{team3.name}}</div>
-        <div class="name">{{team3.ages}}</div>
-  
-        <button (click)="onTeamClick(team3)">Информация!</button>
-      </div>
-    </div>
-    
-
-  </div>
-</section> -->
-    <!--   
-  <div class="tablet">
-    <div *ngFor="let team of teams">
-      <div class="name">{{team.id}}</div>
-      <div class="name">{{team.name}}</div>
-      <div class="name">{{team.ages}}</div>
-
-      <button (click)="onTeamClick(team)">Состав</button>
-    </div>
-  </div> -->
-
-  </div>

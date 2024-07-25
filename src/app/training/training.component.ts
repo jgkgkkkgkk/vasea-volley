@@ -15,7 +15,7 @@ export class TrainingComponent implements OnInit{
 
 
   public characteristic:any;
-  public cars:Car[];
+  public cars:Car[] = [];
 
   constructor(private yService: YService,
               public dialog: MatDialog,

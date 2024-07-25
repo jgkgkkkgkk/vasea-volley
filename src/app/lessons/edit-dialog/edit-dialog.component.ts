@@ -17,16 +17,6 @@ export interface DialogData {
   members: TeamMember[];
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {id:1,firstName:'vasia', lastName: 'Hydrogen' ,height: 150,age:15,},
-  {id:2,firstName:'petia', lastName: 'Hydrogen' ,height: 150,age:15,},
-  {id:3,firstName:'ddd', lastName: 'Hydrogen' ,height: 150,age:15,},
-  {id:4,firstName:'fff', lastName: 'Hydrogen' ,height: 150,age:15,},
-  {id:5,firstName:'ss', lastName: 'Hydrogen' ,height: 150,age:15,},
-  {id:6,firstName:'gg', lastName: 'Hydrogen' ,height: 150,age:15,},
-
-];
-
 @Component({
   selector: 'app-edit-dialog',
   templateUrl: './edit-dialog.component.html',
@@ -34,7 +24,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class EditDialogComponent {
   displayedColumns: string[] = ['id','fist-name','lastName','height','age'];
-  dataSource = ELEMENT_DATA;
 
   constructor(
     public dialogRef: MatDialogRef<EditDialogComponent>,
@@ -44,6 +33,7 @@ export class EditDialogComponent {
 
 
   onSaveClick() {
+    console.log(this.data);
     this.dialogRef.close(this.data);
   }
 }

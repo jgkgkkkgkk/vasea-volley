@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HollyDayDialogComponent } from './hollyday-dialog.component';
+import { AdminPanelComponent } from './admin-panel.component';
 
-describe('HollydayDialogComponent', () => {
-  let component: HollyDayDialogComponent;
-  let fixture: ComponentFixture<HollyDayDialogComponent>;
+describe('AdminPanelComponent', () => {
+  let component: AdminPanelComponent;
+  let fixture: ComponentFixture<AdminPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HollyDayDialogComponent]
+      declarations: [AdminPanelComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HollyDayDialogComponent);
+    fixture = TestBed.createComponent(AdminPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,4 +21,3 @@ describe('HollydayDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
