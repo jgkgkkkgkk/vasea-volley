@@ -31,6 +31,10 @@ export class MainService {
     return this.http.post<Schedule>('http://localhost:8083/api/schedule/save', schedule);
   }
 
+  deleteSchedule(id: number) {
+    return this.http.delete(`http://localhost:8083/api/schedule/${id}`);
+  }
+
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }

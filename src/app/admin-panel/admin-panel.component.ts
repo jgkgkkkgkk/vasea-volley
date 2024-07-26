@@ -6,6 +6,7 @@ import {Team} from "../models/team.model";
 import {User} from "../models/user.model";
 import {Hollyday} from "../models/hollyday.model";
 import {ScheduleFormComponent} from "./schedule-form/schedule-form.component";
+import {DeleteModalComponent} from "./delete-modal/delete-modal.component";
 
 @Component({
   selector: 'app-admin-panel',
@@ -54,6 +55,12 @@ export class AdminPanelComponent implements OnInit {
 
   deleteSchedule(row: any): void {
     console.log('deleteSchedule - row', row);
+    this.dialog.open(DeleteModalComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    });
   }
 
   editSchedule(row: any): void {

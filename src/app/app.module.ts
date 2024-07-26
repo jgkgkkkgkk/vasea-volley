@@ -30,6 +30,7 @@ import {HollyDayDialogComponent} from './lessons/hollyday-dialog/hollyday-dialog
 import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
 import {MatTabsModule} from "@angular/material/tabs";
 import { ScheduleFormComponent } from './admin-panel/schedule-form/schedule-form.component';
+import { DeleteModalComponent } from './admin-panel/delete-modal/delete-modal.component';
 
 const appRoutes: Routes = [
   {path: '', component: AboutComponent},
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
         TablePaginationExample,
         HollyDayDialogComponent,
         AdminPanelComponent,
-        ScheduleFormComponent
+        ScheduleFormComponent,
+        DeleteModalComponent
     ], imports: [BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,

@@ -1,0 +1,13 @@
+<div class="delete-modal">
+  <h2 mat-dialog-title>Удалить расписание</h2>
+  <mat-dialog-content>
+    Вы действительно хотите удалить расписание для учителя - {{data.data.teacher}} для дня - {{data.data.day}} и времени - {{data.data.time}} ?
+
+    <div class="form-element">
+      <button mat-raised-button color="primary" type="button" class="button" (click)="deleteSchedule(data.data.id)">Удалить</button>
+      <button mat-raised-button color="danger" type="button" class="button" (click)="closeWindow()">Отмена</button>
+    </div>
+
+  </mat-dialog-content>
+</div>
+
