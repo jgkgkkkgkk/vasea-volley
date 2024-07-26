@@ -27,6 +27,10 @@ export class MainService {
     return this.http.get<Schedule[]>('http://localhost:8083/api/schedule/list');
   }
 
+  addSchedule(schedule: any): Observable<Schedule> {
+    return this.http.post<Schedule>('http://localhost:8083/api/schedule/save', schedule);
+  }
+
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }

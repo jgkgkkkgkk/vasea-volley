@@ -5,7 +5,6 @@ import {Schedule} from "../models/schedule.model";
 import {Team} from "../models/team.model";
 import {User} from "../models/user.model";
 import {Hollyday} from "../models/hollyday.model";
-import {HollyDayDialogComponent} from "../lessons/hollyday-dialog/hollyday-dialog.component";
 import {ScheduleFormComponent} from "./schedule-form/schedule-form.component";
 
 @Component({
@@ -27,6 +26,10 @@ export class AdminPanelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void {
     this.mainService.getSchedule().subscribe(data => {
       this.shedules = data;
     });
@@ -42,10 +45,9 @@ export class AdminPanelComponent implements OnInit {
   }
 
   addSchedule(): void {
-    console.log('addSchedule');
     this.dialog.open(ScheduleFormComponent, {
       data: {
-
+        parent: this
       }
     });
   }
