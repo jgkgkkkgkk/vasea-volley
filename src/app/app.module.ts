@@ -7,7 +7,7 @@ import {TrainingComponent} from './training/training.component';
 import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {PageComponent} from './page/page.component';
-import {HttpClientModule, provideHttpClient, withFetch} from "@angular/common/http";
+import { withFetch, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 import {ShopComponent} from './shop/shop.component';
@@ -43,52 +43,43 @@ const appRoutes: Routes = [
   {path: 'admin-panel', component: AdminPanelComponent},
 ]
 
-@NgModule({
-  bootstrap: [AppComponent],
-  declarations: [
-    AppComponent,
-    AboutComponent,
-    TrainingComponent,
-    PageComponent,
-    LoginComponent,
-    SignupComponent,
-    ShopComponent,
-    LessonsComponent,
-    EditDialogComponent,
-    TablePaginationExample,
-    HollyDayDialogComponent,
-    AdminPanelComponent,
-    ScheduleFormComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatIconModule,
-    MatDividerModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatTabsModule,
-  ],
-  providers: [
-    provideClientHydration(),
-    MainService,
-    provideAnimationsAsync(),
-    provideHttpClient(
-      withFetch(),
-    ),
-
-  ]
-})
+@NgModule({ bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        AboutComponent,
+        TrainingComponent,
+        PageComponent,
+        LoginComponent,
+        SignupComponent,
+        ShopComponent,
+        LessonsComponent,
+        EditDialogComponent,
+        TablePaginationExample,
+        HollyDayDialogComponent,
+        AdminPanelComponent,
+        ScheduleFormComponent
+    ], imports: [BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes),
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        MatIconModule,
+        MatDividerModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatTabsModule], providers: [
+        provideClientHydration(),
+        MainService,
+        provideAnimationsAsync(),
+        provideHttpClient(withFetch()),
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {
 }
