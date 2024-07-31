@@ -7,6 +7,7 @@ import {User} from "../models/user.model";
 import {Hollyday} from "../models/hollyday.model";
 import {ScheduleFormComponent} from "./schedule-form/schedule-form.component";
 import {DeleteModalComponent} from "./delete-modal/delete-modal.component";
+import {TeamFormComponent} from "./team-form/team-form.component";
 
 @Component({
   selector: 'app-admin-panel',
@@ -14,25 +15,19 @@ import {DeleteModalComponent} from "./delete-modal/delete-modal.component";
   styleUrl: './admin-panel.component.scss'
 })
 export class AdminPanelComponent implements OnInit {
-editSchedule(_t58: any) {
-throw new Error('Method not implemented.');
-}
-addTeams() {
-throw new Error('Method not implemented.');
-} 
-
   public shedules: Schedule[] = [];
   public teams: Team[] = [];
   public users: User[] = [];
   public hollydays: Hollyday[] = [];
 
-  displayedScheduleColumns = ['day','time','teacher', 'actions'];
-  displayedTeamColumns = ['day','time','pupil', 'actions'];
+  displayedScheduleColumns = ['day', 'time', 'teacher', 'actions'];
+  displayedTeamColumns = ['name', 'age', 'actions'];
 
 
   constructor(private mainService: MainService,
               public dialog: MatDialog,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.loadData();
@@ -51,9 +46,6 @@ throw new Error('Method not implemented.');
     this.mainService.getHollydays().subscribe(data => {
       this.hollydays = data;
     });
-    this.mainService.editTeams().subscribe(data => {
-      this.teams = data;
-    });
   }
 
   addSchedule(): void {
@@ -62,6 +54,10 @@ throw new Error('Method not implemented.');
         parent: this
       }
     });
+  }
+
+  editSchedule(row: any): void {
+    console.log('editSchedule - row', row);
   }
 
   deleteSchedule(row: any): void {
@@ -74,16 +70,23 @@ throw new Error('Method not implemented.');
     });
   }
 
-  
-deleteTeams(row: any): void {
-  console.log('deleteTeam - row', row);
-  this.dialog.open(DeleteModalComponent, {
-    data: {
-      data: row,
-      parent: this
-    }
-  })
-}
+  addTeams() {
+    this.dialog.open(TeamFormComponent, {
+      data: {
+        parent: this
+      }
+    });
+  }
+
+  deleteTeams(row: any): void {
+    console.log('deleteTeam - row', row);
+    this.dialog.open(DeleteModalComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    })
+  }
 
   editTeams(row: any): void {
     console.log('editSchedule - row', row);

@@ -1,12 +1,12 @@
 export class Team {
   id: number;
   name: string;
-  ages: string;
+  age: string;
 
   constructor(lessons: Team) {
     this.id = lessons.id;
     this.name=lessons.name;
-    this.ages = lessons.ages;
+    this.age = lessons.age;
 
   }
 }
