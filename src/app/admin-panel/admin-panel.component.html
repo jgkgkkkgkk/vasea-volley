@@ -31,21 +31,72 @@
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef>Действие</th>
               <td mat-cell *matCellDef="let element">
-                <button mat-raised-button (click)="editSchedule(element)">Изменить</button>
-                <button mat-raised-button (click)="deleteSchedule(element)">Удалить</button>
+                <button mat-raised-button
+                  (click)="editSchedule(element)">Изменить</button>
+                <button mat-raised-button
+                  (click)="deleteSchedule(element)">Удалить</button>
               </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedScheduleColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedScheduleColumns;"></tr>
+            <tr mat-row
+              *matRowDef="let row; columns: displayedScheduleColumns;"></tr>
           </table>
         </div>
       </div>
     </mat-tab>
 
-    <mat-tab label="Команды">Content 2</mat-tab>
+<!-- Tabteams2 -->
+    <mat-tab label="Команды">
 
-    <mat-tab label="События">Content 3</mat-tab>
+      <div class="admin-panel-content">
+        <div class="add-button-container">
+          <button mat-fab extended aria-label="Add" (click)="addTeams()">
+            <mat-icon>add</mat-icon>
+            Добавить рассписание
+          </button>
+        </div>
+
+        <div class="grid-container">
+          <table mat-table [dataSource]="teams" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="day">
+              <th mat-header-cell *matHeaderCellDef>День</th>
+              <td mat-cell *matCellDef="let element"> {{element.day}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="time">
+              <th mat-header-cell *matHeaderCellDef>Время</th>
+              <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="pupil">
+              <th mat-header-cell *matHeaderCellDef>Учитель</th>
+              <td mat-cell *matCellDef="let element"> {{element.pupil}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Действие</th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-raised-button
+                  (click)="editTeams(element)">Изменить</button>
+                <button mat-raised-button
+                  (click)="deleteTeams(element)">Удалить</button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedTeamColumns"></tr>
+            <tr mat-row
+              *matRowDef="let row; columns: displayedTeamColumns;"></tr>
+          </table>
+        </div>
+      </div>
+
+    </mat-tab>
+<!-- Tab -->
+    <mat-tab label="События"> 
+
+    </mat-tab>
   </mat-tab-group>
 
 </div>

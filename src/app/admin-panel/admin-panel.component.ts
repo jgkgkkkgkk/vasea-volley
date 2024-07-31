@@ -14,6 +14,12 @@ import {DeleteModalComponent} from "./delete-modal/delete-modal.component";
   styleUrl: './admin-panel.component.scss'
 })
 export class AdminPanelComponent implements OnInit {
+editSchedule(_t58: any) {
+throw new Error('Method not implemented.');
+}
+addTeams() {
+throw new Error('Method not implemented.');
+} 
 
   public shedules: Schedule[] = [];
   public teams: Team[] = [];
@@ -21,6 +27,8 @@ export class AdminPanelComponent implements OnInit {
   public hollydays: Hollyday[] = [];
 
   displayedScheduleColumns = ['day','time','teacher', 'actions'];
+  displayedTeamColumns = ['day','time','pupil', 'actions'];
+
 
   constructor(private mainService: MainService,
               public dialog: MatDialog,
@@ -43,6 +51,9 @@ export class AdminPanelComponent implements OnInit {
     this.mainService.getHollydays().subscribe(data => {
       this.hollydays = data;
     });
+    this.mainService.editTeams().subscribe(data => {
+      this.teams = data;
+    });
   }
 
   addSchedule(): void {
@@ -63,8 +74,20 @@ export class AdminPanelComponent implements OnInit {
     });
   }
 
-  editSchedule(row: any): void {
+  
+deleteTeams(row: any): void {
+  console.log('deleteTeam - row', row);
+  this.dialog.open(DeleteModalComponent, {
+    data: {
+      data: row,
+      parent: this
+    }
+  })
+}
+
+  editTeams(row: any): void {
     console.log('editSchedule - row', row);
   }
 
 }
+

@@ -12,6 +12,9 @@ import {Schedule} from "../models/schedule.model";
   providedIn: 'root'
 })
 export class MainService {
+  addTeam(team: Team) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http: HttpClient,
   ) {
@@ -38,6 +41,12 @@ export class MainService {
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }
+
+
+  editTeams(): Observable<Team[]> {
+    return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
+  }
+ 
 
   getHollydays(): Observable<Hollyday[]> {
     const hollydays: Hollyday[] = [{
