@@ -1,18 +1,14 @@
-<h2 mat-dialog-title>Добавить расписание</h2>
+<h2 mat-dialog-title>Добавить Команду</h2>
 <mat-dialog-content>
   <div class="team-form-container">
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
 
       <mat-form-field class="form-element">
-        <input matInput type="text" placeholder="День" formControlName="day">
+        <input matInput type="text" placeholder="Название" formControlName="name">
       </mat-form-field>
 
       <mat-form-field class="form-element">
-        <input matInput type="text" placeholder="Время" formControlName="time">
-      </mat-form-field>
-
-      <mat-form-field class="form-element">
-        <input matInput type="text" placeholder="Ученик" formControlName="teacher">
+        <input matInput type="text" placeholder="Года" formControlName="age">
       </mat-form-field>
 
       <div class="form-element">

@@ -8,6 +8,7 @@ import {Hollyday} from "../models/hollyday.model";
 import {ScheduleFormComponent} from "./schedule-form/schedule-form.component";
 import {DeleteModalComponent} from "./delete-modal/delete-modal.component";
 import {TeamFormComponent} from "./team-form/team-form.component";
+import { DeleteTeamModalComponent } from './delete-team-modal/delete-team-modal.component';
 
 @Component({
   selector: 'app-admin-panel',
@@ -78,9 +79,9 @@ export class AdminPanelComponent implements OnInit {
     });
   }
 
-  deleteTeams(row: any): void {
+  deleteTeam(row: any): void {
     console.log('deleteTeam - row', row);
-    this.dialog.open(DeleteModalComponent, {
+    this.dialog.open(DeleteTeamModalComponent, {
       data: {
         data: row,
         parent: this
@@ -89,7 +90,7 @@ export class AdminPanelComponent implements OnInit {
   }
 
   editTeams(row: any): void {
-    console.log('editSchedule - row', row);
+    console.log('editTeams - row', row);
   }
 
 }

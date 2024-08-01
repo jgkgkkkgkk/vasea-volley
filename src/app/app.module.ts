@@ -32,6 +32,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { ScheduleFormComponent } from './admin-panel/schedule-form/schedule-form.component';
 import { DeleteModalComponent } from './admin-panel/delete-modal/delete-modal.component';
 import { TeamFormComponent } from './admin-panel/team-form/team-form.component';
+import { DeleteTeamModalComponent } from './admin-panel/delete-team-modal/delete-team-modal.component';
 
 const appRoutes: Routes = [
   {path: '', component: AboutComponent},
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
         AdminPanelComponent,
         ScheduleFormComponent,
         DeleteModalComponent,
-        TeamFormComponent
+        TeamFormComponent,
+        DeleteTeamModalComponent
     ], imports: [BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,

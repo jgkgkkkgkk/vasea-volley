@@ -12,10 +12,7 @@ import {Schedule} from "../models/schedule.model";
   providedIn: 'root'
 })
 export class MainService {
-  addTeam(team: Team) {
-    throw new Error('Method not implemented.');
-  }
-
+  
   constructor(private http: HttpClient,
   ) {
   }
@@ -38,6 +35,9 @@ export class MainService {
     return this.http.delete(`http://localhost:8083/api/schedule/${id}`);
   }
 
+  deleteTeam(id: number) {
+    return this.http.delete(`http://localhost:8083/api/teams/${id}`);
+  }
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }
@@ -47,6 +47,10 @@ export class MainService {
     return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }
  
+
+  addTeam(team: any): Observable<Team> {
+    return this.http.post<Team>('http://localhost:8083/api/teams/save', team);
+  }
 
   getHollydays(): Observable<Hollyday[]> {
     const hollydays: Hollyday[] = [{

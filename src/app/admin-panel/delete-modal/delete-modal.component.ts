@@ -28,4 +28,12 @@ export class DeleteModalComponent {
     });
   }
 
+  deleteTeams(id: number): void {
+    this.mainService.deleteSchedule(id).subscribe(data => {
+      this.data.parent.loadData();
+      this.closeWindow();
+    });
+  }
+
+
 }
