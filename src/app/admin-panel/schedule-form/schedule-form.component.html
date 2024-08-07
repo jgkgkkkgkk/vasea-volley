@@ -16,7 +16,7 @@
       </mat-form-field>
 
       <div class="form-element">
-        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Добавить</button>
+        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{getButtonText()}}</button>
       </div>
 
     </form>

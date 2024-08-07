@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 public message=10
+
+
+
 }

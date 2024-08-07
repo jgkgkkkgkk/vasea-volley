@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {MainService} from "../services/main.service";
-import {MatDialog} from "@angular/material/dialog";
-import {Schedule} from "../models/schedule.model";
-import {Team} from "../models/team.model";
-import {User} from "../models/user.model";
-import {Hollyday} from "../models/hollyday.model";
-import {ScheduleFormComponent} from "./schedule-form/schedule-form.component";
-import {DeleteModalComponent} from "./delete-modal/delete-modal.component";
-import {TeamFormComponent} from "./team-form/team-form.component";
+import { Component, OnInit } from '@angular/core';
+import { MainService } from "../services/main.service";
+import { MatDialog } from "@angular/material/dialog";
+import { Schedule } from "../models/schedule.model";
+import { Team } from "../models/team.model";
+import { User } from "../models/user.model";
+import { Hollyday } from "../models/hollyday.model";
+import { ScheduleFormComponent } from "./schedule-form/schedule-form.component";
+import { DeleteModalComponent } from "./delete-modal/delete-modal.component";
+import { TeamFormComponent } from "./team-form/team-form.component";
 import { DeleteTeamModalComponent } from './delete-team-modal/delete-team-modal.component';
 
 @Component({
@@ -26,7 +26,7 @@ export class AdminPanelComponent implements OnInit {
 
 
   constructor(private mainService: MainService,
-              public dialog: MatDialog,
+    public dialog: MatDialog,
   ) {
   }
 
@@ -59,6 +59,12 @@ export class AdminPanelComponent implements OnInit {
 
   editSchedule(row: any): void {
     console.log('editSchedule - row', row);
+    this.dialog.open(ScheduleFormComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    });
   }
 
   deleteSchedule(row: any): void {
@@ -74,6 +80,7 @@ export class AdminPanelComponent implements OnInit {
   addTeams() {
     this.dialog.open(TeamFormComponent, {
       data: {
+        data: null,
         parent: this
       }
     });
@@ -91,6 +98,12 @@ export class AdminPanelComponent implements OnInit {
 
   editTeams(row: any): void {
     console.log('editTeams - row', row);
+    this.dialog.open(TeamFormComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    });
   }
 
 }

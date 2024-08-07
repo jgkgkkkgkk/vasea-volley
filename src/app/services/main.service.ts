@@ -1,27 +1,24 @@
-import {Inject, Injectable} from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import {Observable, of} from "rxjs";
-import {Team} from "../models/team.model";
-import {TeamMember} from "../models/team-member.model";
-import {User} from "../models/user.model";
-import {Hollyday} from '../models/hollyday.model';
-import {Schedule} from "../models/schedule.model";
+import { Observable, of } from "rxjs";
+import { Team } from "../models/team.model";
+import { TeamMember } from "../models/team-member.model";
+import { User } from "../models/user.model";
+import { Hollyday } from '../models/hollyday.model';
+import { Schedule } from "../models/schedule.model";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
-  
-  constructor(private http: HttpClient,
-  ) {
-  }
 
+  constructor(private http: HttpClient) {
+  }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:8083/api/users/list')
   }
-
 
   getSchedule(): Observable<Schedule[]> {
     return this.http.get<Schedule[]>('http://localhost:8083/api/schedule/list');
@@ -35,18 +32,22 @@ export class MainService {
     return this.http.delete(`http://localhost:8083/api/schedule/${id}`);
   }
 
+  editSchedule(id: number, schedule: Schedule): Observable<Schedule> {
+    return this.http.put<Schedule>(`http://localhost:8083/api/schedule/${id}`, schedule);
+  }
+
   deleteTeam(id: number) {
     return this.http.delete(`http://localhost:8083/api/teams/${id}`);
   }
+  
+
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
   }
 
-
-  editTeams(): Observable<Team[]> {
-    return this.http.get<Team[]>('http://localhost:8083/api/teams/list');
+  editTeam(id: number, team: Team): Observable<Team> {
+    return this.http.put<Team>(`http://localhost:8083/api/teams/${id}`, team);
   }
- 
 
   addTeam(team: any): Observable<Team> {
     return this.http.post<Team>('http://localhost:8083/api/teams/save', team);
@@ -141,6 +142,4 @@ export class MainService {
     ]
     return of(dummyMembers.filter(el => el.teamId == id))
   }
-
-
 }
