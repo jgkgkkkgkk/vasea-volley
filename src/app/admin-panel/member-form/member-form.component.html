@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Добавить Участника</h2>
+<mat-dialog-content>
+  <div class="member-form-container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+      <mat-form-field class="form-element">
+        <input matInput type="text" placeholder="Имя" formControlName="firstname">
+      </mat-form-field>
+
+
+      <mat-form-field class="form-element">
+        <input matInput type="text" placeholder="Фамилия" formControlName="lastname">
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <input matInput type="text" placeholder="Рост" formControlName="height">
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <input matInput type="text" placeholder="Емайл" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <input matInput type="text" placeholder="Года" formControlName="age">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Команды</mat-label>
+        <mat-select placeholder="Команды" formControlName="teamId">
+          @for (team of listTeams; track team) {
+            <mat-option [value]="team.id">{{team.name}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ getButtonText() }}</button>
+      </div>
+
+    </form>
+  </div>
+</mat-dialog-content>

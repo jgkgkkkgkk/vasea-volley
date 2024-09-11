@@ -26,13 +26,18 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {TabsComponent} from "./tabs/tabs.component";
 import {MatCardModule} from '@angular/material/card';
-import {HollyDayDialogComponent} from './lessons/hollyday-dialog/hollyday-dialog.component';
 import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
 import {MatTabsModule} from "@angular/material/tabs";
 import { ScheduleFormComponent } from './admin-panel/schedule-form/schedule-form.component';
 import { DeleteModalComponent } from './admin-panel/delete-modal/delete-modal.component';
 import { TeamFormComponent } from './admin-panel/team-form/team-form.component';
 import { DeleteTeamModalComponent } from './admin-panel/delete-team-modal/delete-team-modal.component';
+import { HollydayFormComponent } from './admin-panel/hollyday-form/hollyday-form.component';
+import { DeleteHollydayComponent } from './admin-panel/delete-hollyday/delete-hollyday.component';
+import { MemberFormComponent } from './admin-panel/member-form/member-form.component';
+import { DeleteMemberComponent } from './admin-panel/delete-member/delete-member/delete-member.component';
+import {MatOption, MatSelect} from "@angular/material/select";
+
 
 const appRoutes: Routes = [
   {path: '', component: AboutComponent},
@@ -58,29 +63,32 @@ const appRoutes: Routes = [
         LessonsComponent,
         EditDialogComponent,
         TablePaginationExample,
-        HollyDayDialogComponent,
         AdminPanelComponent,
         ScheduleFormComponent,
         DeleteModalComponent,
         TeamFormComponent,
-        DeleteTeamModalComponent
+        DeleteTeamModalComponent,
+        HollydayFormComponent,
+        DeleteHollydayComponent,
+        MemberFormComponent,
+        DeleteMemberComponent,
     ], imports: [BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        FormsModule,
-        RouterModule.forRoot(appRoutes),
-        MatDialogModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatTableModule,
-        MatFormFieldModule,
-        MatDialogModule,
-        MatIconModule,
-        MatDividerModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatTabsModule], providers: [
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatIconModule,
+    MatDividerModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatTabsModule, MatSelect, MatOption], providers: [
         provideClientHydration(),
         MainService,
         provideAnimationsAsync(),

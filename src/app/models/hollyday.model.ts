@@ -1,14 +1,19 @@
 export class Hollyday {
   id: number;
-  name: string;
-  description: string;
-  startDate: Date;
+  firstName: any;
+lastname: any;
+firstname: any;
+height: any;
+age: any;
 
-  constructor(hollyday: Hollyday) {
-    this.id = hollyday.id;
-    this.name = hollyday.name;
-    this.description = hollyday.description;
-    this.startDate = hollyday.startDate;
 
-  }
+
+constructor(hollyday: Hollyday) {
+  this.id = hollyday.id;
+  this.firstname=hollyday.firstname;
+  this.lastname=hollyday.lastname;
+  this.height = hollyday.height;
+  this.age = hollyday.age;
+
+}
 }

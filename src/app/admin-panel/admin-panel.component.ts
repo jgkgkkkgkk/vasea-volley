@@ -9,6 +9,11 @@ import { ScheduleFormComponent } from "./schedule-form/schedule-form.component";
 import { DeleteModalComponent } from "./delete-modal/delete-modal.component";
 import { TeamFormComponent } from "./team-form/team-form.component";
 import { DeleteTeamModalComponent } from './delete-team-modal/delete-team-modal.component';
+import { HollydayFormComponent } from './hollyday-form/hollyday-form.component';
+import { DeleteHollydayComponent } from './delete-hollyday/delete-hollyday.component';
+import {MemberFormComponent} from "./member-form/member-form.component";
+import {Member} from "../models/member.modal";
+import {DeleteMemberComponent} from "./delete-member/delete-member/delete-member.component";
 
 @Component({
   selector: 'app-admin-panel',
@@ -16,14 +21,18 @@ import { DeleteTeamModalComponent } from './delete-team-modal/delete-team-modal.
   styleUrl: './admin-panel.component.scss'
 })
 export class AdminPanelComponent implements OnInit {
+
+
   public shedules: Schedule[] = [];
   public teams: Team[] = [];
   public users: User[] = [];
   public hollydays: Hollyday[] = [];
+  public member:Member[]=[];
 
   displayedScheduleColumns = ['day', 'time', 'teacher', 'actions'];
   displayedTeamColumns = ['name', 'age', 'actions'];
-
+  displayedHollydayColumns = ['name', 'description','data', 'location', 'actions'];
+  displayedMemberColumns = ['firstname', 'lastname','age', 'height', 'email', 'actions'];
 
   constructor(private mainService: MainService,
     public dialog: MatDialog,
@@ -44,14 +53,18 @@ export class AdminPanelComponent implements OnInit {
     this.mainService.getUsers().subscribe(data => {
       this.users = data;
     });
-    this.mainService.getHollydays().subscribe(data => {
+    this.mainService.getHollyday().subscribe(data => {
       this.hollydays = data;
     });
+    this.mainService.getMember().subscribe(data => {
+      this.member = data;
+    })
   }
 
   addSchedule(): void {
     this.dialog.open(ScheduleFormComponent, {
       data: {
+        data: null,
         parent: this
       }
     });
@@ -106,5 +119,73 @@ export class AdminPanelComponent implements OnInit {
     });
   }
 
+  addMember() {
+    this.dialog.open(MemberFormComponent, {
+      data: {
+        data: null,
+        parent: this
+      }
+    });
+  }
+
+
+
+  deleteMember(row: any): void {
+    console.log('deleteMember - row', row);
+    this.dialog.open(DeleteMemberComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    })
+  }
+
+
+
+  editMember(row: any): void {
+    console.log('editMember - row', row);
+    this.dialog.open(MemberFormComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    });
+  }
+
+
+
+
+  addHollyday() {
+    this.dialog.open(HollydayFormComponent, {
+      data: {
+        data: null,
+        parent: this
+      }
+    });
+  }
+
+
+
+  deleteHollyday(row: any): void {
+    console.log('deleteHollyday - row', row);
+    this.dialog.open(DeleteHollydayComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    })
+  }
+
+
+
+  editHollyday(row: any): void {
+    console.log('editHollyday - row', row);
+    this.dialog.open(HollydayFormComponent, {
+      data: {
+        data: row,
+        parent: this
+      }
+    });
+  }
 }
 

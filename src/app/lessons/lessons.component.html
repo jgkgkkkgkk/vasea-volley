@@ -2,28 +2,30 @@
   <h1>Расписание</h1>
   <div class="shedules">
     <mat-card *ngFor="let schedule of shedules" class="example-card"
-              appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
+      appearance="outlined">
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <img mat-card-image src="https://sun9-31.userapi.com/impf/PbB-O3Rd4UIbf69oBqlIiMFloC2JhXADJe6iCA/UN6JXv0F24A.jpg?size=1119x780&quality=96&sign=a42a5d669d3e2d73d9d060f647adf34e&c_uniq_tag=h9nPKdNBdy5Bj0fBK06a03a2jagGchY92S1FKkIr8RQ&type=album" alt="">
+        <mat-card-content>
           <section>
             <div class="example-button-row">
               <div class="tablet">
-                <div class="name">{{schedule.id}}</div>
-                <div class="name">{{schedule.day}}</div>
-                <div class="name">{{schedule.time}}</div>
-                <div class="name">{{schedule.teacher}}</div>
+                <div class="id">{{schedule.id}}</div>
+                <div class="day">{{schedule.teacher}}</div>
+                <div class="age">{{schedule.time}}</div>
+                <div class="day">{{schedule.day}}</div>
+
               </div>
             </div>
           </section>
-          <mat-divider></mat-divider>
-          <mat-card-subtitle></mat-card-subtitle>
-          <img mat-card-sm-image
-               src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-        content
-      </mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
     </mat-card>
   </div>
 
@@ -31,56 +33,121 @@
   <div class="shedules">
     <mat-card *ngFor="let team of teams" class="example-card"
       appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <img mat-card-image src="https://cdnn21.img.ria.ru/images/rsport/101824/52/1018245225_0:107:3071:1835_600x0_80_0_0_a6d0314b59e4e5d58e8aa4ce86098ca8.jpg" alt="">
+        <mat-card-content>
           <section>
             <div class="example-button-row">
               <div class="tablet">
-                <div class="name">{{team.id}}</div>
-                <div class="name">{{team.name}}</div>
-                <div class="name">{{team.age}}</div>
-                <button (click)="onTeamClick(team)">Состав</button>
+                <div class="id">{{team.id}}</div>
+                <div class="firstname">{{team.name}}</div>
+                <div class="age">{{team.age}}</div>
+
               </div>
             </div>
           </section>
-          <mat-divider></mat-divider>
-          <mat-card-subtitle></mat-card-subtitle>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-        content
-      </mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+    </mat-card>
     </mat-card>
   </div>
 
   <h1>Мероприятия</h1>
-  <div class="shedules">
+  <div class="hollyday">
     <mat-card *ngFor="let hollyday of hollydays" class="example-card"
       appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <img mat-card-image src="https://cdn.culture.ru/images/7cc44cf5-e8c1-5440-be24-a4f95351f7e7" alt="">
+        <mat-card-content>
           <section>
             <div class="example-button-row">
               <div class="tablet">
-                <div class="name">{{hollyday.id}}</div>
-                <div class="name">{{hollyday.name}}</div>
-                <div class="name">{{hollyday.description}}</div>
-                <div class="name">{{hollyday.startDate}}</div>
-                <button (click)="onHollydayClick(hollyday)">Детали</button>
+                <div class="id">{{hollyday.id}}</div>
+                <div class="firstname">{{hollyday.firstname}}</div>
+                <div class="lastname">{{hollyday.lastname}}</div>
+                <div class="height">{{hollyday.height}}</div>
+                <div class="age">{{hollyday.age}}</div>
+
               </div>
             </div>
           </section>
-          <mat-divider></mat-divider>
-          <mat-card-subtitle></mat-card-subtitle>
-          <img mat-card-sm-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-        content
-      </mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
     </mat-card>
   </div>
+
+
+
+
+
+
+<!--      <mat-card-header>-->
+<!--        <mat-card-title-group>-->
+<!--          <section>-->
+<!--            <div class="example-button-row">-->
+<!--              <div class="tablet">-->
+<!--                <div class="firstname">{{member.firstname}}</div>-->
+<!--                <div class="lastname">{{member.lastname}}</div>-->
+<!--                <div class="height">{{member.height}}</div>-->
+<!--                <div class="age">{{member.age}}</div>-->
+<!--                &lt;!&ndash; <button (click)="onHollydayClick(hollyday)">Детали</button> &ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </section>-->
+<!--          <mat-divider></mat-divider>-->
+<!--          <mat-card-subtitle></mat-card-subtitle>-->
+<!--          <img mat-card-sm-image-->
+<!--               src="https://material.angular.io/assets/img/examples/shiba2.jpg">-->
+<!--        </mat-card-title-group>-->
+<!--      </mat-card-header>-->
+
+
+
+<!--  <h1>Участники</h1>-->
+<!--  <div class="member">-->
+<!--    <mat-card *ngFor="let member of member" class="example-card"-->
+<!--              appearance="outlined">-->
+<!--      <mat-card class="example-card" appearance="outlined">-->
+<!--        <mat-card-header>-->
+<!--          <div mat-card-avatar class="example-header-image"></div>-->
+<!--        </mat-card-header>-->
+<!--        <img mat-card-image src="https://avatars.mds.yandex.net/i?id=8711a92cf764488de4784d8554241d2c_l-5231779-images-thumbs&n=13" alt="">-->
+<!--        <mat-card-content>-->
+<!--          <section>-->
+<!--            <div class="example-button-row">-->
+<!--              <div class="tablet">-->
+<!--                <div class="firstname">{{member.firstname}}</div>-->
+<!--                <div class="lastname">{{member.lastname}}</div>-->
+<!--                <div class="height">{{member.height}}</div>-->
+<!--                <div class="age">{{member.age}}</div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--          </section>-->
+<!--        </mat-card-content>-->
+<!--        <mat-card-actions>-->
+<!--          <button mat-button>LIKE</button>-->
+<!--          <button mat-button>SHARE</button>-->
+<!--        </mat-card-actions>-->
+<!--&lt;!&ndash;      </mat-card>&ndash;&gt;-->
+
+<!--    </mat-card>-->
 </div>
+
+
+
+
+
